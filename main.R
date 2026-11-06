@@ -1,5 +1,6 @@
 install.packages("RKaggle")
 install.packages("tidyr")
+install.packages("dplyr")
 install.packages("stringr")
 library(RKaggle)
 library(tidyr)
