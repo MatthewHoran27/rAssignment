@@ -27,16 +27,17 @@ ds1Road <- ds1 %>% filter(TRANSPORT_MODE == "ROAD")
 ds1RailColPlot <- ggplot(
   data = ds1Rail,
   mapping = aes(x = TIME_PERIOD, y = OBS_VALUE, fill = REF_AREA)) +
-    geom_col() +
-    labs(
-      title = "Rail transport",
-      subtitle = "From '21 to '25",
-      x = "Year",
-      y = "Volume",
-      fill = "Country",
-      caption = "Source: OECD"
-    ) +
-    theme_ds1
+  geom_col() +
+  scale_fill_viridis_d(option = fill) +
+  labs(
+    title = "Rail transport",
+    subtitle = "From '21 to '25",
+    x = "Year",
+    y = "Volume",
+    fill = "Country",
+    caption = "Source: OECD"
+  ) +
+  theme_ds1
 
 ds1Total2025 <- ds1 %>% filter(TIME_PERIOD == 2025 & TRANSPORT_MODE %in% c("COASTAL", "PIPE", "RAIL", "ROAD", "IWW"))
 
@@ -51,15 +52,16 @@ ds1TotalBarPlot <- ggplot(
 ds1TotalWafflePlot <- ggplot(
   data = ds1Total2025,
   mapping = aes(x = OBS_VALUE, y = OBS_VALUE, fill = REF_AREA)) +
-    geom_tile(colour = "black", size = 0.5) +
-    scale_x_continuous(expand = c(0, 0)) +
-    scale_y_continuous(expand = c(0, 0), trans = 'reverse') 
+  geom_tile(colour = "black", size = 0.5) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0), trans = 'reverse') 
 
 # Pie chart with OBS_VALUE per country
 ds1RailPiePlot <- ggplot(
   data = ds1Rail,
   mapping = aes(x = "", y = OBS_VALUE, fill = REF_AREA)) +
   geom_bar(stat = "identity", width = 1) +
+  scale_fill_viridis_d(option = fill) +
   coord_polar("y", start = 0) +
   theme_ds1 +
   labs(
@@ -76,6 +78,7 @@ ds1RoadTreePlot <- ggplot(
   data = ds1RoadTreemap,
   mapping = aes(area = OBS_VALUE, fill = REF_AREA, label = REF_AREA)) +
   geom_treemap() +
+  scale_fill_viridis_d(option = fill) +
   geom_treemap_text(colour = "white", place = "centre") +
   theme(legend.position = "none")
 
@@ -83,12 +86,16 @@ ds1RoadTreePlot <- ggplot(
 ds1TotalTreePlot <- ggplot(
   data = ds1 %>% filter(TIME_PERIOD == 2025 & TRANSPORT_MODE %in% c("COASTAL", "PIPE", "RAIL", "ROAD", "IWW")),
   mapping = aes(area = OBS_VALUE, fill = REF_AREA, group = REF_AREA, label = Transport.mode)) +
-    geom_treemap(colour = ds1_BG, size = 3) +
-    geom_treemap_text(colour = "white", family = "Comic Sans MS", place = "centre", size = 12) +
-    labs(
-      title = "Annual freight transport in the Visegrad 4",
-      subtitle = "Time period: 2025",
-      fill = "Reference\nArea",
-      caption = "Units: Millions of tons - Source: OECD"
-    ) +
+  geom_treemap(colour = ds1_BG, size = 3) +
+  scale_fill_viridis_d(option = fill) +
+  geom_treemap_text(colour = "white", family = "Comic Sans MS", place = "centre", size = 12) +
+  labs(
+    title = "Annual freight transport in the Visegrad 4",
+    subtitle = "Time period: 2025",
+    fill = "Reference\nArea",
+    caption = "Units: Millions of tons - Source: OECD"
+  ) +
   theme_ds1
+
+
+
