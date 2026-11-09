@@ -1,10 +1,15 @@
-install.packages("RKaggle")
-install.packages("tidyr")
-install.packages("dplyr")
-install.packages("stringr")
 library(RKaggle)
 library(tidyr)
 library(dplyr)
 library(stringr)
+
 ds1 <- RKaggle::get_dataset("yogape/logistics-operations-database")
-# ds1Short <- filter(ds1, %in% c())
+
+ds1Test <- filter(ds1, status %in% c("detention_minutes",
+                                     "scheduled_datetime", 
+                                     "actual_datetime", 
+                                     "location_city", 
+                                     "location_state",
+                                     "on_time_flag",
+                                     "event_type",
+                                     ))
