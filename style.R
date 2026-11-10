@@ -20,7 +20,7 @@ library("extrafont")
 #F Rocket
 #G Mako
 #H Turbo
-fill <- "F" #Turbo
+fill <- "E" #Turbo
 
 #Light theme
 ds1_lightBg <- "#fff"

@@ -5,6 +5,9 @@ install.packages("tidyr")
 install.packages("treemapify")
 install.packages("extrafont")
 install.packages("OECDdata")
+font_import()
+loadfonts()
+#windowsFonts(`Comic Sans MS` = windowsFont("Comic Sans MS"))
 
 library(readxl)
 library(ggplot2)
@@ -78,7 +81,7 @@ ds1RoadTreePlot <- ggplot(
   data = ds1RoadTreemap,
   mapping = aes(area = OBS_VALUE, fill = REF_AREA, label = REF_AREA)) +
   geom_treemap() +
-  scale_fill_viridis_d(option = fill) +
+  scale_fill_viridis(option = fill) +
   geom_treemap_text(colour = "white", place = "centre") +
   theme(legend.position = "none")
 
