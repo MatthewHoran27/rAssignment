@@ -16,23 +16,24 @@ library("extrafont")
 ds1_BG <- "grey45"
 ds1_MAIN <- "#cf0"
 
-# The theme, and no, I'm NOT removing the Comic Sans
+# Primary theme
 theme_ds1 <- theme(
   plot.background = element_rect(fill = ds1_BG),
   panel.background = element_rect(fill = ds1_BG),
   legend.background = element_rect(fill = ds1_BG),
   
-  axis.line = element_line(colour = ds1_MAIN, size = 1.5),
-  #axis.title = element_text(colour = ds1_MAIN),
+  axis.line = element_line(colour = ds1_MAIN, linewidth = 1.5),
+  axis.title = element_text(colour = ds1_MAIN),
   axis.ticks = element_line(colour = ds1_MAIN),
+  axis.text = element_text(colour = ds1_MAIN),
   
-  text = element_text(colour = ds1_MAIN, family = "Comic Sans MS"),
-  
-  #legend.text = element_text(colour = ds1_MAIN, size = 10, face = "bold"),
-  #legend.title = element_text(colour = ds1_MAIN, size = 12, face = "bold"),
+  text = element_text(colour = ds1_MAIN, family = "HP Simplified"),
   
   plot.title = element_text(face = "bold"),
-  plot.subtitle = element_text(face = "bold")
+  plot.subtitle = element_text(face = "bold"),
+  
+  panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank()
 )
 
 ds1_BG
