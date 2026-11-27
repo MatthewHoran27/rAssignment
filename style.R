@@ -12,28 +12,69 @@ library("tidyr")
 library("treemapify")
 library("extrafont")
 
-# Colours
-ds1_BG <- "grey45"
-ds1_MAIN <- "#cf0"
+#A Magma
+#B Inferno
+#C Plasma
+#D Viridis
+#E Cividis
+#F Rocket
+#G Mako
+#H Turbo
+fill <- "E" #Turbo
 
-# Primary theme
-theme_ds1 <- theme(
-  plot.background = element_rect(fill = ds1_BG),
-  panel.background = element_rect(fill = ds1_BG),
-  legend.background = element_rect(fill = ds1_BG),
+#Light theme
+ds1_lightBg <- "#fff"
+ds1_lightMain <- "#000"
+
+lightTheme_ds1 <- theme(
+  plot.background = element_rect(fill = ds1_lightBg),
+  panel.background = element_rect(fill = ds1_lightBg),
+  legend.background = element_rect(fill = ds1_lightBg),
   
-  axis.line = element_line(colour = ds1_MAIN, linewidth = 1.5),
-  axis.title = element_text(colour = ds1_MAIN),
-  axis.ticks = element_line(colour = ds1_MAIN),
-  axis.text = element_text(colour = ds1_MAIN),
+  axis.line = element_line(colour = ds1_lightMain, size = 1.5),
+  axis.title = element_text(colour = ds1_lightMain),
+  axis.ticks = element_line(colour = ds1_lightMain),
+  axis.text = element_text(colour = ds1_darkMain),
   
-  text = element_text(colour = ds1_MAIN, family = "HP Simplified"),
+  text = element_text(colour = ds1_lightMain, family = "HP Simplified"),
+  
+  legend.text = element_text(colour = ds1_lightMain, size = 10, face = "bold"),
+  legend.title = element_text(colour = ds1_lightMain, size = 12, face = "bold"),
   
   plot.title = element_text(face = "bold"),
   plot.subtitle = element_text(face = "bold"),
   
+  # Making the plot grid invisible by default
   panel.grid.major = element_blank(),
   panel.grid.minor = element_blank()
 )
 
-ds1_BG
+#Dark theme
+ds1_darkBg <- "grey45"
+ds1_darkMain <- "#cf0"
+
+darkTheme_ds1 <- theme(
+  plot.background = element_rect(fill = ds1_darkBg),
+  panel.background = element_rect(fill = ds1_darkBg),
+  legend.background = element_rect(fill = ds1_darkBg),
+  
+  axis.line = element_line(colour = ds1_darkMain, size = 1.5),
+  axis.title = element_text(colour = ds1_darkMain),
+  axis.ticks = element_line(colour = ds1_darkMain),
+  axis.text = element_text(colour = ds1_darkMain),
+  
+  text = element_text(colour = ds1_darkMain, family = "HP Simplified"),
+  
+  legend.text = element_text(colour = ds1_darkMain, size = 10, face = "bold"),
+  legend.title = element_text(colour = ds1_darkMain, size = 12, face = "bold"),
+  
+  plot.title = element_text(face = "bold"),
+  plot.subtitle = element_text(face = "bold"),
+  
+  # Making the plot grid invisible by default
+  panel.grid.major = element_blank(),
+  panel.grid.minor = element_blank()
+)
+
+#Select theme
+theme_ds1 <- darkTheme_ds1
